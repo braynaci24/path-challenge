@@ -174,25 +174,30 @@ body {
 
 .quantity-plus {
     color: green !important;
-    font-size: 30px;
+    font-size: 23px;
     text-decoration: none !important;
     width: 20px;
-    height: 10px;
-
+    height: 20px;
 }
 
 .quantity-minus {
-    color: $color2;
-    position: relative;
-    bottom: -8px;
-    font-size: 30px;
+    color: red;
+    font-size: 23px;
     width: 20px;
+    height: 20px;
 }
 
 .quantity-minus:hover {
     color: red;
 }
-
+.fa-sort-up {
+    position: relative;
+    top: -5px;
+}
+.fa-sort-down {
+    position: relative;
+    top: -8px;
+}
 .fa-star {
     color: $color3;
 }
