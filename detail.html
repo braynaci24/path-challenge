@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>PATH CHALLENGE</title>
+</head>
+
+<body>
+  <div class="modal fade" id="create-modal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="detail-modal-container">
+        <i class="fas fa-check detail-modal-icon"></i>
+          <h2>KAYDEDİLDİ</h2>
+        </div>
+        <div class="modal-footer modal-close-button">
+          <button type="button" class="btn warning-button" data-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="body-theme-container">
+        <button class="body-theme-icon"><i class="fas fa-sliders-h"></i></button>
+        <div class="theme-color-options text-center">
+          <p class="body-theme-box-title">Tema rengini seçiniz</p>
+          <div>
+            <span class="color-palatte brown"></span>
+            <span class="color-palatte grey"></span>
+            <span class="color-palatte blue"></span>
+          </div>
+        </div>
+    
+    
+    </div><!-- end of .body-theme-container-->
+    <div class="container-fluid header">
+        <div class="row justify-content-end align-items-center">
+            <div class="col-4 text-center">
+                <h1 class="page-title">Case Study</h1>
+            </div>
+            <div class="col-4 text-right">
+                <a href="index.html"><button type="button" class="btn theme-color back-list">
+                        <i class="fas fa-chevron-left"></i>
+                        LİSTEYE DÖN
+                    </button></a>
+            </div>
+        </div>
+    </div> <!-- end of .header-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input " type="radio" name="type" id="movie" value="movie" required>
+                    <label class="form-check-label" for="movie">Film</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input " type="radio" name="type" id="series" value="series" required>
+                    <label class="form-check-label" for="series">Dizi</label>
+                  </div>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <input type="text" class="form-control movie-input-name text-center" id="formGroupExampleInput"
+                    placeholder="Film/Dizi Adı" required>
+            </div>
+            <div class="col d-flex align-items-center justify-content-center">
+                <input type="text" class="form-control movie-input-point text-center" id="formGroupExampleInput"
+                    placeholder="Puanı" required>
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-center mt-4">
+                <button type="button" class="btn save-button theme-color"  data-toggle="modal" data-target="#create-modal">
+                    Kaydet
+                  </button></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="main.js"></script>
+    <script type="module" src="assets/js/starter.js"></script>
+</body>
+
+</html>

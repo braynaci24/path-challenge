@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>PATH CHALLENGE</title>
+</head>
+
+<body>
+  <div class="body-theme-container">
+    <button class="body-theme-icon"><i class="fas fa-sliders-h"></i></button>
+    <div class="theme-color-options text-center">
+      <p class="body-theme-box-title">Tema rengini seçiniz</p>
+      <div>
+        <span class="color-palatte brown"></span>
+        <span class="color-palatte grey"></span>
+        <span class="color-palatte blue"></span>
+      </div>
+    </div>
+
+  </div><!-- end of .body-theme-container-->
+  <div class="container modal-container">
+    <div class="row">
+      <div class="col">
+        <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Silmek istediğine emin misin?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn warning-button" data-dismiss="modal">Kapat</button>
+                <button type="button" class="btn warning-button warning-delete-button">Sil</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of .modal-container-->
+
+  <div class="container-fluid header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col d-flex justify-content-start ">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle dropdown-first-button theme-color" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Türler
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item typeall" href="#">Tümü</a>
+              <a class="dropdown-item typemovie" href="#">Filmler</a>
+              <a class="dropdown-item typeseries" href="#">Diziler</a>
+            </div>
+          </div><!-- end of .dropdown-->
+          <div class="dropdown">
+            <button class="btn dropdown-toggle dropdown-last-button theme-color" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sırala
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item decreasing-score" href="#">Puana Göre (Azalan)</a>
+              <a class="dropdown-item increasing-score" href="#">Puana Göre (Artan)</a>
+            </div>
+          </div>
+        </div>
+        <div class="col text-center">
+          <h1 class="page-title">Case Study</h1>
+        </div>
+        <div class=" col new-add-movie text-right">
+          <a href="detail.html"><button type="button" class="btn theme-color body-color-button">
+              <i class="fas fa-plus"></i>
+              YENİ EKLE
+            </button></a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of .header-->
+  <div class="container filtered-list">
+    <div class="row">
+      <div class="col">
+        <ul class="filtered-box">
+          
+        </ul>
+      </div>
+    </div>
+  </div> <!-- end of .filtered-list-->
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination ">
+            <li class="page-item ">
+              <a class="page-link pages" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item "><a class="page-link pages" href="#">1</a></li>
+            <li class="page-item"><a class="page-link pages" href="#">2</a></li>
+            <li class="page-item"><a class="page-link pages " href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link pages" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="main.js"></script>
+  <script type="module" src="assets/js/starter.js"></script>
+</body>
+
+</html>
