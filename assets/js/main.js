@@ -1,14 +1,14 @@
 var initialData = [{
     "name": "Scarface",
-    "point": "5",
+    "point": "10",
     "type": "movie"
 }, {
     "name": "Godfather",
-    "point": "5",
+    "point": "8",
     "type": "movie"
 }, {
     "name": "Carlito's Way",
-    "point": "5",
+    "point": "4",
     "type": "series"
 }];
 $(document).ready(function () {
