@@ -12,32 +12,35 @@ var initialData = [{
     "type": "series"
 }];
 $(document).ready(function () {
+  
     var movies = JSON.parse(localStorage.getItem('data')) || initialData
     var theme = localStorage.getItem('themecolor') || 'themebrown'
     var container = $('.filtered-box');
     var listIndex;
-    console.log(theme)
+    function createList (data) {
+
+      container.html('')
+      for (var i = 0; i < data.length; i++) {
+          container.append(`<li class="d-flex justify-content-between">
+          <div class=" d-flex justify-content-around align-items-center">
+          <span class="item-name">${data[i].name}</span>
+          <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
+          </div>
+          <div class="movie-point">
+            <i class="fas fa-star"></i>
+            <span class="point-increase" >${data[i].point}</span>
+          </div>
+          <div class="item-evaluation">
+            <span>Puan Ver</span>
+            <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
+            <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
+          </div>
+        </li>`);
+      }
+    }
     $('body').addClass(theme);
 
-    if (container.length > 0) {
-        for (var i = 0; i < movies.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-            <div class=" d-flex justify-content-around align-items-center">
-            <span class="item-name">${movies[i].name}</span>
-            <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-            </div>
-            <div class="movie-point">
-              <i class="fas fa-star"></i>
-              <span class="point-increase" >${movies[i].point}</span>
-            </div>
-            <div class="item-evaluation">
-              <span>Puan Ver</span>
-              <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-              <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-            </div>
-          </li>`);
-        }
-    }
+    createList(movies);
 
     $('.save-button').click(function () {
 
@@ -122,25 +125,8 @@ $(document).ready(function () {
             }
         });
 
-        container.html('');
-
-        for (var i = 0; i < filteredMovies.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-            <div class=" d-flex justify-content-around align-items-center">
-            <span class="item-name">${filteredMovies[i].name}</span>
-            <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-            </div>
-            <div class="movie-point">
-              <i class="fas fa-star"></i>
-              <span class="point-increase" >${filteredMovies[i].point}</span>
-            </div>
-            <div class="item-evaluation">
-              <span>Puan Ver</span>
-              <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-              <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-            </div>
-          </li>`);
-        }
+        createList(filteredMovies);
+       
     })
 
     // DİZİLERİ FİLTRELEME
@@ -151,48 +137,17 @@ $(document).ready(function () {
                 filteredSeries.push(item);
             }
         })
-        container.html('');
-
-        for (var i = 0; i < filteredSeries.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-            <div class=" d-flex justify-content-around align-items-center">
-            <span class="item-name">${filteredSeries[i].name}</span>
-            <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-            </div>
-            <div class="movie-point">
-              <i class="fas fa-star"></i>
-              <span class="point-increase" >${filteredSeries[i].point}</span>
-            </div>
-            <div class="item-evaluation">
-              <span>Puan Ver</span>
-              <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-              <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-            </div>
-          </li>`);
-        }
+        createList(filteredSeries);
     })
 
     // TÜM TÜRLERİ FİLTRELEME
     $('.typeall').click(function () {
-        container.html('')
-        for (var i = 0; i < movies.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-            <div class=" d-flex justify-content-around align-items-center">
-            <span class="item-name">${movies[i].name}</span>
-            <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-            </div>
-            <div class="movie-point">
-              <i class="fas fa-star"></i>
-              <span class="point-increase" >${movies[i].point}</span>
-            </div>
-            <div class="item-evaluation">
-              <span>Puan Ver</span>
-              <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-              <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-            </div>
-          </li>`);
-        }
+
+      createList(movies);
+
     })
+
+   
 
     // PUANA GÖRE ARTAN SIRALAMA
     $('.increasing-score').click(function () {
@@ -200,26 +155,7 @@ $(document).ready(function () {
             return a.point - b.point
         })
 
-        container.html('')
-
-        for (var i = 0; i < movies.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-             <div class=" d-flex justify-content-around align-items-center">
-             <span class="item-name">${movies[i].name}</span>
-             <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-             </div>
-             <div class="movie-point">
-               <i class="fas fa-star"></i>
-               <span class="point-increase" >${movies[i].point}</span>
-             </div>
-             <div class="item-evaluation">
-               <span>Puan Ver</span>
-               <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-               <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-             </div>
-           </li>`);
-        }
-
+        createList(movies);
     })
 
       // PUANA GÖRE AZALAN SIRALAMA
@@ -228,26 +164,15 @@ $(document).ready(function () {
             return b.point - a.point
         })
 
-        container.html('')
-        
-        for (var i = 0; i < movies.length; i++) {
-            container.append(`<li class="d-flex justify-content-between">
-            <div class=" d-flex justify-content-around align-items-center">
-            <span class="item-name">${movies[i].name}</span>
-            <a class="trash" data-toggle="modal" data-target="#delete-modal" href="#"><i class="far fa-trash-alt" ></i></a>
-            </div>
-            <div class="movie-point">
-              <i class="fas fa-star"></i>
-              <span class="point-increase" >${movies[i].point}</span>
-            </div>
-            <div class="item-evaluation">
-              <span>Puan Ver</span>
-              <a href="#" class="quantity-plus"><i class="fas fa-sort-up"></i></a>
-              <a href="#" class="quantity-minus"><i class="fas fa-sort-down"></i></a>
-            </div>
-          </li>`);
-        }
+        createList(movies);
     })
+
+    
+
+    
+
+
+
 
 
 })
